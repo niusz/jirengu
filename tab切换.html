@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="tab切换.css">
+</head>
+
+<body>
+    <div class="mod-tab">
+        <div class="tab-wrapper">
+            <ul class="tab">
+                <li class="tab1">tab1</li>
+                <li class="tab2">tab2</li>
+                <li class="tab3">tab3</li>
+            </ul>
+        </div>
+        <div class="content-wrapper">
+            <ul class="content">
+                <li class="content1 active">内容1</li>
+                <li class="content2">内容2</li>
+                <li class="content3">内容3</li>
+            </ul>
+        </div>
+
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script>
+        $(".tab>li").on("click",function(){
+           var $this = $(this);
+           var index = $this.index()
+           var contentHeight = $(".mod-tab .content-wrapper").height()
+           console.log(index);
+           $this.addClass("active").siblings()
+           .removeClass("active")
+        //    $this.parents(".mod-tab").find(".content").children()
+        //    .eq(index).addClass("active").siblings()
+        //    .removeClass("active")
+           $this.parents(".mod-tab").find(".content")
+           .animate({top: -index*contentHeight})})
+      
+    </script
+</body>
+
+
+</html>
